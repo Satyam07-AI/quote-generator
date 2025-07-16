@@ -22,13 +22,16 @@ quotes = [
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    quote = random.choice(quotes)
+    return render_template('index.html', quote=quote)
 
 @app.route('/quote')
 def get_quote():
     quote = random.choice(quotes)
     return jsonify({'quote': quote})
 
+if __name__ == '__main__':
+    app.run(debug=True)
 
 
 

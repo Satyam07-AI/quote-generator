@@ -4,49 +4,19 @@
     <meta charset="UTF-8">
     <title>✨ Daily Quote</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 100px;
-            background-color: #fefae0;
-        }
-        .quote-box {
-            background: #ffffff;
-            padding: 30px;
-            margin: auto;
-            width: 60%;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            border-radius: 12px;
-        }
-        button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            background-color: #ffb703;
-            border-radius: 5px;
-        }
-    </style>
 </head>
 <body>
-    <div class="top-banner">
-        ✨ Made by SAT 💙
-    </div>
+
+    <div class="top-banner">✨ Made by SAT 💙</div>
 
     <div class="container">
-        <h1>✨ Daily Quote</h1>
         <div class="quote-box">
+            <h1>✨ Daily Quote</h1>
             <p id="quote">{{ quote }}</p>
-        </div>
-        <div class="btns">
             <button onclick="getNewQuote()">🔄 New Quote</button>
         </div>
     </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
-
 </html>
