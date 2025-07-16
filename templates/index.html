@@ -13,10 +13,16 @@
         <div class="quote-box">
             <h1>✨ Daily Quote</h1>
             <p id="quote">{{ quote }}</p>
+
+            <!-- Existing button -->
             <button onclick="getNewQuote()">🔄 New Quote</button>
+
+            <!-- 🔥 NEW: Share Button -->
+            <button onclick="shareQuote()">📤 Share</button>
         </div>
     </div>
 
+    <!-- JavaScript file -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
