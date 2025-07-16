@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quote Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="quote-box">
+        <h1>"{{ quote }}"</h1>
+        <p>— <em>{{ author }}</em></p>
+        <button onclick="window.location.reload();">New Quote</button>
+    </div>
+</body>
+</html>
+
