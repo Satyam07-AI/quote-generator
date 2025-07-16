@@ -1,1 +1,3 @@
-pip install flask quote
+flask
+quote
+gunicorn
