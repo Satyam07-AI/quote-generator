@@ -1,37 +1,35 @@
-from flask import Flask, render_template
-import quote
 import random
+from flask import Flask, render_template, jsonify
 
 app = Flask(__name__)
 
-topics = ["success", "life", "dream", "discipline", "motivation", "learning", "hustle"]
+# Your custom quotes
+quotes = [
+    "Made by SAT 💙 Keep going!",
+    "Winners are just ex-losers who never gave up.",
+    "Don’t wait for people to believe in you. Make them watch. Make them regret ever doubting you.",
+    "Don’t waste energy on proving a point emotionally. Prove it by performance.",
+    "Outperform. Outdeliver. Outgrind. Outshine.",
+    "Be honest with yourself even if it hurts. Truth burns, but it also purifies. Denial delays success. That’s how you take souls in real life.",
+    "Stop blaming others — it's YOUR life. Victim mode is broken.",
+    "Quit everything that distracts. No more half-focus.",
+    "Track progress daily, even if it’s 1%. Small wins compound.",
+    "Be okay staying alone if you're becoming better. Legends are built in isolation, not in party invites.",
+    "Don’t impress. Build the real you. You’re not here to look cool. You’re here to be undeniable."
+]
+
+
 
 @app.route('/')
-def home():
-    try:
-        topic = random.choice(topics)
-        result = quote.quote(topic)
+def index():
+    return render_template('index.html')
 
-        # ✅ Always extract ONE quote only
-        if isinstance(result, list) and len(result) > 0:
-            chosen = result[0]
-        elif isinstance(result, dict):
-            chosen = result
-        else:
-            chosen = {'quote': "Keep going anyway.", 'author': "Unknown"}
+@app.route('/quote')
+def get_quote():
+    quote = random.choice(quotes)
+    return jsonify({'quote': quote})
 
-        quote_text = chosen.get('quote', 'Keep going anyway.')
-        author = chosen.get('author', 'Unknown')
 
-    except Exception as e:
-        print("Error:", e)
-        quote_text = "Do your best anyway."
-        author = "Mother Teresa"
-
-    return render_template('index.html', quote=quote_text, author=author)
-
-if __name__ == '__main__':
-    app.run(debug=True)
 
 
 
