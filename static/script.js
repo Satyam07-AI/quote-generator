@@ -1,11 +1,19 @@
 function getNewQuote() {
+    const quoteElement = document.getElementById('quote');
+    quoteElement.classList.add('fade-out');
+
     fetch('/quote')
         .then(response => response.json())
         .then(data => {
-            document.getElementById('quote').textContent = data.quote;
+            setTimeout(() => {
+                quoteElement.textContent = data.quote;
+                quoteElement.classList.remove('fade-out');
+                quoteElement.classList.add('fade-in');
+            }, 300);
         })
         .catch(error => console.error('Error fetching quote:', error));
 }
+
 
 function shareQuote() {
     const quoteText = document.getElementById('quote').textContent;

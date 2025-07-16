@@ -3,26 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>✨ Daily Quote</title>
+
+    <!-- Google Fonts (optional upgrade) -->
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap" rel="stylesheet">
+
+    <!-- Link to CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-    <div class="top-banner">✨ Made by SAT 💙</div>
+    <!-- 🔝 Top Banner -->
+    <div class="top-banner">✨ MADE BY SAT 💙</div>
 
+    <!-- 📦 Quote Container -->
     <div class="container">
         <div class="quote-box">
             <h1>✨ Daily Quote</h1>
             <p id="quote">{{ quote }}</p>
-
-            <!-- Existing button -->
+            
+            <!-- 🔁 New Quote Button -->
             <button onclick="getNewQuote()">🔄 New Quote</button>
 
-            <!-- 🔥 NEW: Share Button -->
+            <!-- 📤 Share Button -->
             <button onclick="shareQuote()">📤 Share</button>
         </div>
     </div>
 
-    <!-- JavaScript file -->
+    <!-- 🔗 JS Script -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
