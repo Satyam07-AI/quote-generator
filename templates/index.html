@@ -1,15 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Quote Generator</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="UTF-8">
+    <title>✨ Daily Quote</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+            background-color: #fefae0;
+        }
+        .quote-box {
+            background: #ffffff;
+            padding: 30px;
+            margin: auto;
+            width: 60%;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 12px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #ffb703;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
+    <div style="background-color: #f0f0f0; text-align: center; padding: 8px 0; font-weight: bold; font-family: sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+  ✨ Made by SAT 💙
+</div>
+
     <div class="quote-box">
-        <h1>"{{ quote }}"</h1>
-        <p>— <em>{{ author }}</em></p>
-        <button onclick="window.location.reload();">New Quote</button>
+        <h1>✨ Daily Quote</h1>
+        <p id="quote">{{ quote['quote'] }}</p>
+        <p><strong id="author">— {{ quote['author'] }}</strong></p>
+        <button onclick="getNewQuote()">🔄 New Quote</button>
     </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
-
